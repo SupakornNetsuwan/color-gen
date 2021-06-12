@@ -85,7 +85,6 @@ let Content = ({mainColor}) =>{
           let colorCode = `rgb(${color.rgb.join(",")})`;
           //For what?
           let randomKey = Number(colorCode.match(/\d/g).join("")) - Math.round(Math.random() * 1000);
-          console.log(randomKey)
 
           return(
             <div key={randomKey} style={{"backgroundColor":colorCode}} className="color-box">
