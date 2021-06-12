@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900');
+
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Lato', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav{
+    background-color: #262626;
+    padding:25px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav > p{
+    color:#E5E5E5;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-button{
+    color:#E5E5E5;
+    display: none;
+    font-size:1.7em;
 }
 
-.App-link {
-  color: #61dafb;
+.input-wrap{
+    display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-wrap input{
+    width:210px;
+    font-size: 1.2em;
+    padding:5px 10px;
+    border:none;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-wrap input.error{
+    border:2px solid #cc0000;
+}
+
+.input-wrap button{
+    padding:6px 20px;
+    border: none;
+    background:none;
+    border: 2px solid #2ECC40;
+    color:#2ECC40;
+    font-size: 1em;
+    border-radius: 4px;
+    margin-left:10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.status{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    animation: statusLoop 2s ease-in-out infinite alternate;
+    font-size: 2.5em;
+    font-weight: 900;
+}
+
+@keyframes statusLoop{
+    0%{
+        color:#262626;
+    }
+    100%{
+        color:rgba(49, 42, 42, 0.466);
+    }
+}
+
+.color-box{
+    height: 50px;
+    padding:20px 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+}
+
+@media only screen and (max-width:900px){
+    .status{
+        font-size:1.5em
+    }
+}
+
+@media only screen and (max-width:650px){
+    nav{
+        padding:25px 20px;
+    }
+
+    .nav-button{
+        display: flex;
+    }
+
+    .input-wrap{
+        position: fixed;
+        bottom:-80px;
+        right:0;
+        width:100%;
+        background-color: #262626;
+        justify-content: center;
+        padding: 20px 0;
+        transition:0.5s ease-in-out;
+    }
+
+    .input-wrap.toggle{
+        bottom:0;
+        transition:0.5s ease-in-out;
+    }
+
+    .input-wrap input{
+        width:50%;
+        padding:5px 10px;
+    }
+
+    .input-wrap button{
+        margin-left:4px;
+        padding:4px 10px;
+        font-weight: 500;
+    }
+
+    .status{
+        text-align: center;
+    }
+
 }
